@@ -1,8 +1,10 @@
+from flask_cors import CORS
 from flask import Flask, request, jsonify
 from sympy import symbols, Eq, solve, sin, cos, tan, sec, csc, cot, sqrt, N, pi, nsimplify, Rational, simplify, I
 from sympy.parsing.sympy_parser import parse_expr, standard_transformations, implicit_multiplication_application, convert_xor
 
 app = Flask(__name__)
+CORS(app)
 
 x = symbols('x')
 transformations = standard_transformations + (implicit_multiplication_application, convert_xor)
